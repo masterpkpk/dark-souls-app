@@ -5,8 +5,14 @@ import About from "./components/About"
 import Contact from "./components/Contact"
 import Boss from "./components/Boss"
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { fetchBosses } from './actions'
+import { connect } from 'react-redux'
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchBosses();
+  }
 
   render () {
     return (
@@ -28,4 +34,5 @@ class App extends Component {
 
 
 
-export default App
+
+export default connect(null, { fetchBosses })(App)

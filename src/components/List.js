@@ -6,9 +6,7 @@ import { Link } from 'react-router-dom'
 
 class List extends Component {
 
-  componentDidMount() {
-    this.props.fetchBosses();
-  }
+  
   
   render() {
     console.log(this.props)
@@ -31,7 +29,7 @@ class List extends Component {
     )
     return (
       <div className="container">
-        <h4 className="center">Home</h4>
+        <h4 className="center">Bosses</h4>
         {bossesList}
       </div>
     )
