@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchBosses } from '../actions'
 import { Link } from 'react-router-dom'
 
 
@@ -9,17 +8,19 @@ class List extends Component {
   
   
   render() {
-    console.log(this.props)
+   
     const { bosses } = this.props
     
     const bossesList = bosses.length ? (
       bosses.map(boss => {
         return (
-          <div className="post card" key={boss.id}>
-            <div className="card-content">
-              <Link to={'/' + boss.id}>
-                <span className="card-title">{boss.name}</span> 
-              </Link>
+          <div className="bosses" key={boss.id}>
+            <div className="post card transparent" >
+              <div className="card-content transparent">
+                <Link to={'/' + boss.id}>
+                  <span className="card-title transparent">{boss.name}</span> 
+                </Link>
+              </div>
             </div>
           </div>
         )
@@ -44,4 +45,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchBosses })(List)
+export default connect(mapStateToProps)(List)

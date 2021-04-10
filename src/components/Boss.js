@@ -7,10 +7,10 @@ import Form from './Form'
 
 class Boss extends Component {
   
+ 
   
-
   render() {
-  
+    
     if (this.props.loading) {
       return (
         <div className="container center">
@@ -20,12 +20,15 @@ class Boss extends Component {
     }
     
     const { name, weakness, resistance, immunity, parryable, optional, id, comments} = this.props.boss
+    
+  
+
     const commentList = comments.length ? (
       comments.map(comment => {
         return (
-          <div className="post card" key={comment.id}>
-            <div className="card-content">
-              <span className="card-title">{comment.content}</span>
+          <div className="comment container" key={comment.id}>
+            <div className="post card transparent" >
+                <span className="card-title transparent">{comment.content}</span>
             </div>
           </div>
         )
@@ -35,7 +38,7 @@ class Boss extends Component {
     )
     return (
       <div className="container center" >
-          
+        <div className="boss">
           <h4> { name } </h4>
           <p> Weakness: { weakness } </p>
           <p> Resistance: { resistance } </p>
@@ -43,9 +46,9 @@ class Boss extends Component {
           <p> Parryable: { parryable } </p>
           <p> Optional: { optional } </p>
           <Form history={ this.props.history } boss_id={id}/>
-          <h5> Comments </h5>
+          <h4> Comments </h4>
           { commentList }
-
+        </div>
       </div>
     );
   }
@@ -56,7 +59,9 @@ const mapStateToProps = (state, ownProps) => {
   
   return {
     loading: state.loading,
-    boss: state.bosses.find(boss => boss.id === id)
+    boss: state.bosses.find(boss => boss.id === id),
+    comments: state.comments
+    
   }
   
 }

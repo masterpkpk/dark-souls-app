@@ -7,7 +7,8 @@ class Form extends Component {
 
   state = {
     content: "",
-    boss_id: this.props.boss_id,
+    boss_id: this.props.boss_id
+   
   }
 
   handleChange = (e) => {
@@ -18,7 +19,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.props.history)
+    console.log(this.props)
     this.props.addComment(this.state, this.props.history)
     this.setState({
       content: "",
@@ -33,7 +34,7 @@ class Form extends Component {
       <div>
         <form onSubmit={ this.handleSubmit }>
           <h5><label htmlFor="comment">Comment</label></h5>
-          <input type="text" name="content" value={this.state.content} onChange={ this.handleChange }/>
+          <input className="commentBox" type="text" name="content" value={this.state.content} onChange={ this.handleChange }/>
           <button>Submit</button>
         </form>
       </div>

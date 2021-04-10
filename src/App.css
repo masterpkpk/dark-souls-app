@@ -4,6 +4,37 @@
 
 body {
   background-image: url(./pics/darksouls.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: auto; 
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Times New Roman', Times, serif;
+
+
+}
+
+.comment {
+  background-image: url(./pics/grey.jpg);
+  background-repeat: no-repeat center center;
+  color: darkgrey;
+  height: 50;
+  width: 300;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.bosses {
+  background-image: url(./pics/road.jpg);
+}
+
+a {
+  color: black;
+}
+
+.boss {
+  font-size: 22px;
 }
 
 .App-logo {

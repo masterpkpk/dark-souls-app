@@ -1,6 +1,7 @@
 const initialState = {
   loading:true, 
-  bosses: []
+  bosses: [],
+  comments: []
 }
 
 const bossesReducer = (state=initialState, action) => {
@@ -27,8 +28,9 @@ const bossesReducer = (state=initialState, action) => {
       return{
         ...state,
         
-        comments: [state.comments, action.comment]
+        comments: [...state.comments, action.comment]
       }
+   
     default:
       return state;
   }
