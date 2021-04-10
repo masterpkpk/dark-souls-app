@@ -18,3 +18,22 @@ export const fetchBoss = (id) => {
     
   }
 }
+
+export const addComment = (comment, history) => {
+  
+  return dispatch => {
+    fetch("http://localhost:3001/comments", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json" 
+      },
+      body: JSON.stringify({ comment })
+    })
+    .then(r => r.json())
+    .then(comment => {
+      dispatch({ type: "ADD_COMMENT", comment})
+      history.push(history.location.pathname) 
+    })
+  }
+}

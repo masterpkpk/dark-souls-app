@@ -23,6 +23,12 @@ const bossesReducer = (state=initialState, action) => {
         loading: false,
         bosses: action.payload
       }
+    case "ADD_COMMENT":
+      return{
+        ...state,
+        
+        comments: [state.comments, action.comment]
+      }
     default:
       return state;
   }
