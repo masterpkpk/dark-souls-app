@@ -12,9 +12,14 @@ body {
   min-height: 100vh;
   flex-direction: column;
   font-family: 'Times New Roman', Times, serif;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.5); /* Tint color */
+  background-blend-mode: multiply;
 
 
 }
+
+
 
 .comment {
   background-image: url(./pics/grey.jpg);
@@ -27,14 +32,18 @@ body {
 
 .bosses {
   background-image: url(./pics/road.jpg);
+  background-color: rgba(0, 0, 0, 0.5); /* Tint color */
+  background-blend-mode: multiply;
 }
 
 a {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .boss {
   font-size: 22px;
+  text-align: left;
+  /* display: inline-block; */
 }
 
 .App-logo {
@@ -71,3 +80,15 @@ a {
     transform: rotate(360deg);
   }
 }
+
+.float-container {
+  
+  padding: 20px;
+}
+
+.float-child {
+  width: 50%;
+  float: left;
+  padding: 20px;
+
+}  

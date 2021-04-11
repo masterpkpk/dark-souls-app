@@ -19,7 +19,7 @@ class Boss extends Component {
       )
     }
     
-    const { name, weakness, resistance, immunity, parryable, optional, id, comments} = this.props.boss
+    const { name, weakness, resistance, immunity, parryable, optional, id, comments, pic} = this.props.boss
     
   
 
@@ -38,15 +38,21 @@ class Boss extends Component {
     )
     return (
       <div className="container center" >
-        <div className="boss">
-          <h4> { name } </h4>
-          <p> Weakness: { weakness } </p>
-          <p> Resistance: { resistance } </p>
-          <p> Immunity: { immunity } </p>
-          <p> Parryable: { parryable } </p>
-          <p> Optional: { optional } </p>
-          <Form history={ this.props.history } boss_id={id}/>
-          <h4> Comments </h4>
+        <div className="boss float-container">
+          <br />
+          <div className="float-child">
+            <img src={pic}  alt={name}  width="300" height="300"/>
+          </div>
+            <div className="float-child">
+            <h4> { name } </h4>
+            <p> Weakness: { weakness } </p>
+            <p> Resistance: { resistance } </p>
+            <p> Immunity: { immunity } </p>
+            <p> Parryable: { parryable } </p>
+            <p> Optional: { optional } </p>
+          </div>
+            <Form history={ this.props.history } boss_id={id}/>
+            <h4 className="center"> Comments </h4>
           { commentList }
         </div>
       </div>

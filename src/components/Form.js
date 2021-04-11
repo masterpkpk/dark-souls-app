@@ -33,9 +33,11 @@ class Form extends Component {
     return (
       <div>
         <form onSubmit={ this.handleSubmit }>
-          <h5><label htmlFor="comment">Comment</label></h5>
+          <h5 className="center"><label htmlFor="comment">Comment</label></h5>
           <input className="commentBox" type="text" name="content" value={this.state.content} onChange={ this.handleChange }/>
-          <button>Submit</button>
+          <div className="container center">
+            <button>Submit</button>
+          </div>
         </form>
       </div>
     );
