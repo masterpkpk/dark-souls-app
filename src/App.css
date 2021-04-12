@@ -43,7 +43,10 @@ a {
 .boss {
   font-size: 22px;
   text-align: left;
-  /* display: inline-block; */
+  padding-top: 30px; 
+  padding-left: 100px;
+ 
+ 
 }
 
 .App-logo {
@@ -90,5 +93,10 @@ a {
   width: 50%;
   float: left;
   padding: 20px;
+ 
 
 }  
+
+.commentBox {
+  color: aliceblue;
+}

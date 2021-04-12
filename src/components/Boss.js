@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchBoss } from '../actions'
 import { connect } from 'react-redux'
 import Form from './Form'
+import { Link } from 'react-router-dom'
 
 
 
@@ -38,12 +39,26 @@ class Boss extends Component {
     )
     return (
       <div className="container center" >
-        <div className="boss float-container">
-          <br />
+        <div className="float-container">
           <div className="float-child">
-            <img src={pic}  alt={name}  width="300" height="300"/>
+            <Link to={'/' + (id - 1)}>
+              <button>Previous</button>
+            </Link>
           </div>
-            <div className="float-child">
+          <div className="float-child" >
+            <Link to={'/' + (id + 1)}>
+              <button>Next</button>
+            </Link>
+          </div>
+        </div>
+
+        <div className="float-container">
+          <div className="float-child">
+            <div className="boss">
+                <img src={pic}  alt={name}  width="300" height="300"/>
+            </div>
+          </div>
+          <div className="float-child boss" >
             <h4> { name } </h4>
             <p> Weakness: { weakness } </p>
             <p> Resistance: { resistance } </p>
@@ -51,11 +66,16 @@ class Boss extends Component {
             <p> Parryable: { parryable } </p>
             <p> Optional: { optional } </p>
           </div>
-            <Form history={ this.props.history } boss_id={id}/>
-            <h4 className="center"> Comments </h4>
-          { commentList }
         </div>
+         
+          <Form history={ this.props.history } boss_id={id}/>
+          <h4 className="center"> Comments </h4>
+         
+          { commentList }
+
       </div>
+      
+      
     );
   }
 }
