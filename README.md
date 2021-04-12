@@ -1,3 +1,7 @@
+## LINK TO BACK END RAILS API
+
+https://github.com/masterpkpk/dark-souls-api
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
