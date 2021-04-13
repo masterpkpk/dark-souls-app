@@ -2,15 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-
 class List extends Component {
-
-  
   
   render() {
    
     const { bosses } = this.props
-    
     const bossesList = bosses.length ? (
       bosses.map(boss => {
         return (
@@ -33,9 +29,7 @@ class List extends Component {
         <h4 className="center">Bosses</h4>
         {bossesList}
       </div>
-    )
-  
-    
+    ) 
   }
 }
 

@@ -4,12 +4,9 @@ import Form from './Form'
 import { Link } from 'react-router-dom'
 import { fetchComments } from "../actions"
 
-
 class Boss extends Component {
   
- 
   render() {
-    
     if (this.props.loading) {
       return (
         <div className="container center">
@@ -19,19 +16,15 @@ class Boss extends Component {
     }
     
     const { name, weakness, resistance, immunity, parryable, optional, id,  pic} = this.props.boss
-    
     const bossComments = this.props.comments.filter(comment => id === comment.boss_id)
     const commentList = bossComments.map(comment => {
       return (
-        <div className="comment" key={comment.id}>
+        <div className="comment post card " key={comment.id}>
           { comment.content }
         </div>
       )
     })
-      
-    
-
-    
+         
     return (
       <div className="container center" >
         <div className="float-container">
@@ -57,12 +50,12 @@ class Boss extends Component {
                 : <div>
                     <Link to={'/' + (id + 1)}>
                       <button>Next</button>
+                      
                     </Link>
                   </div>
               }
           </div>
         </div>
-
         <div className="float-container">
           <div className="float-child">
             <div className="boss">
@@ -78,24 +71,19 @@ class Boss extends Component {
             <p> Optional: { optional } </p>
           </div>
         </div>
-         
           <Form history={ this.props.history } boss_id={id}/>
           <h4 className="center"> Comments </h4>
-         
         {
-          (commentList.length > 0) ?
-            commentList : 
-            <div>
-              No comments
-            </div>
+          (commentList.length > 0)
+            ?
+              commentList
+            : 
+              <div>
+                No comments
+              </div>
         }
-       
-
-      </div>
-      
-      
+      </div> 
     );
-    
   }
 }
 
@@ -106,12 +94,8 @@ const mapStateToProps = (state, ownProps) => {
     loading: state.loading,
     boss: state.bosses.find(boss => boss.id === id),
     comments: state.comments
-    
   }
-  
 }
-
-
 
 export default connect(mapStateToProps, { fetchComments })(Boss)
 

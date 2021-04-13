@@ -4,22 +4,21 @@ import { addComment } from '../actions'
 
 class Form extends Component {
   
-
   state = {
     content: "",
     boss_id: this.props.boss_id
-   
   }
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      boss_id: this.props.boss_id
     })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.props)
+  
     this.props.addComment(this.state, this.props.history)
     this.setState({
       content: "",
@@ -29,7 +28,6 @@ class Form extends Component {
   }
   
   render() {
-    
     return (
       <div>
         <form onSubmit={ this.handleSubmit }>
@@ -43,6 +41,5 @@ class Form extends Component {
     );
   }
 }
-
 
 export default connect(null, { addComment })(Form);
