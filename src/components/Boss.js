@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { fetchBoss } from '../actions'
 import { connect } from 'react-redux'
 import Form from './Form'
 import { Link } from 'react-router-dom'
-
+import { fetchComments } from "../actions"
 
 
 class Boss extends Component {
   
  
-  
   render() {
     
     if (this.props.loading) {
@@ -20,35 +18,48 @@ class Boss extends Component {
       )
     }
     
-    const { name, weakness, resistance, immunity, parryable, optional, id, comments, pic} = this.props.boss
+    const { name, weakness, resistance, immunity, parryable, optional, id,  pic} = this.props.boss
     
-  
+    const bossComments = this.props.comments.filter(comment => id === comment.boss_id)
+    const commentList = bossComments.map(comment => {
+      return (
+        <div className="comment" key={comment.id}>
+          { comment.content }
+        </div>
+      )
+    })
+      
+    
 
-    const commentList = comments.length ? (
-      comments.map(comment => {
-        return (
-          <div className="comment container" key={comment.id}>
-            <div className="post card transparent" >
-                <span className="card-title transparent">{comment.content}</span>
-            </div>
-          </div>
-        )
-      })
-    ) : (
-      <div className="center">No comments</div>
-    )
+    
     return (
       <div className="container center" >
         <div className="float-container">
           <div className="float-child">
-            <Link to={'/' + (id - 1)}>
-              <button>Previous</button>
-            </Link>
+            {
+              (id === 1)
+              ? <div>
+                 
+                </div>
+              : <div>
+                  <Link to={'/' + (id - 1)}>
+                    <button>Previous</button>
+                  </Link>
+                </div>
+            }
           </div>
           <div className="float-child" >
-            <Link to={'/' + (id + 1)}>
-              <button>Next</button>
-            </Link>
+            {
+                (id === 19)
+                ? <div>
+                  <button>None</button>
+                  </div>
+                : <div>
+                    <Link to={'/' + (id + 1)}>
+                      <button>Next</button>
+                    </Link>
+                  </div>
+              }
           </div>
         </div>
 
@@ -71,12 +82,20 @@ class Boss extends Component {
           <Form history={ this.props.history } boss_id={id}/>
           <h4 className="center"> Comments </h4>
          
-          { commentList }
+        {
+          (commentList.length > 0) ?
+            commentList : 
+            <div>
+              No comments
+            </div>
+        }
+       
 
       </div>
       
       
     );
+    
   }
 }
 
@@ -94,5 +113,5 @@ const mapStateToProps = (state, ownProps) => {
 
 
 
-export default connect(mapStateToProps, { fetchBoss })(Boss)
+export default connect(mapStateToProps, { fetchComments })(Boss)
 

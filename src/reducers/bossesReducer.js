@@ -30,7 +30,12 @@ const bossesReducer = (state=initialState, action) => {
         
         comments: [...state.comments, action.comment]
       }
-   
+    case "SET_COMMENTS":
+      return {
+        ...state, 
+        loading: true,
+        comments: action.payload
+      }
     default:
       return state;
   }
