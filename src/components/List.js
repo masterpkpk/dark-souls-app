@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Grid from '@material-ui/core/Grid';
 
 class List extends Component {
   
@@ -10,14 +11,17 @@ class List extends Component {
     const bossesList = bosses.length ? (
       bosses.map(boss => {
         return (
-          <div className="bosses" key={boss.id}>
-            <div className="post card transparent" >
-              <div className="card-content transparent">
-                <Link to={'/' + boss.id}>
-                  <span className="card-title transparent">{boss.name}</span> 
-                </Link>
-              </div>
-            </div>
+          <div key={boss.id}>
+            <Grid item xs={12}>           
+              <Link to={'/' + boss.id}>
+                <div className="center">
+                  {boss.name}
+                </div>
+                <div className="center">
+                  <img src={boss.pic} alt={boss.name} width="150" height="150"/>
+                </div>
+              </Link>
+            </Grid>             
           </div>
         )
       })
@@ -25,10 +29,13 @@ class List extends Component {
       <div className="center">None yet</div>
     )
     return (
-      <div className="container">
+      <div>
         <h4 className="center">Bosses</h4>
-        {bossesList}
+          <Grid container direction="row" justify="space-between" alignItems="flex-start">  
+            {bossesList}
+          </Grid>
       </div>
+      
     ) 
   }
 }

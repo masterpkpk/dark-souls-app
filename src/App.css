@@ -14,24 +14,17 @@ body {
   font-family: 'Times New Roman', Times, serif;
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.5); /* Tint color */
-  background-blend-mode: multiply;
-
+  background-blend-mode: multiply; 
 
 }
 
 
 
-.comment {
-  background-image: url(./pics/grey.jpg);
-  background-repeat: no-repeat center center;
-  color: darkgrey;
-  height: 50;
-  width: 100;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+
 
 .bosses {
-  background-image: url(./pics/road.jpg);
+ 
+  background-image: url(./pics/grey.jpg);
   background-color: rgba(0, 0, 0, 0.5); /* Tint color */
   background-blend-mode: multiply;
 }
@@ -41,10 +34,8 @@ a {
 }
 
 .boss {
-  font-size: 22px;
-  text-align: left;
-  padding-top: 30px; 
-  padding-left: 100px;
+  width: 300px;
+  height: 300px;
  
  
 }
@@ -99,4 +90,10 @@ a {
 
 .commentBox {
   color: aliceblue;
+}
+
+.Container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }

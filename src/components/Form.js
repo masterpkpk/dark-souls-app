@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addComment } from '../actions'
+import Button from '@material-ui/core/Button';
+
 
 class Form extends Component {
   
@@ -31,10 +33,10 @@ class Form extends Component {
     return (
       <div>
         <form onSubmit={ this.handleSubmit }>
-          <label htmlFor="comment">Comment</label>
+          
           <input className="commentBox" type="text" name="content" value={this.state.content} onChange={ this.handleChange }/>
           <div className="container center">
-            <button>Submit</button>
+          <Button onClick={ this.handleSubmit } variant="contained" color="primary">Submit</Button>
           </div>
         </form>
       </div>

@@ -3,6 +3,12 @@ import { connect } from 'react-redux'
 import Form from './Form'
 import { Link } from 'react-router-dom'
 import { fetchComments } from "../actions"
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Comment from './Comment'
+
+
+
 
 class Boss extends Component {
   
@@ -15,54 +21,33 @@ class Boss extends Component {
       )
     }
     
-    const { name, weakness, resistance, immunity, parryable, optional, id,  pic} = this.props.boss
+   
+
+    const { name, weakness, resistance, immunity, parryable, optional, id, pic} = this.props.boss
     const bossComments = this.props.comments.filter(comment => id === comment.boss_id)
-    const commentList = bossComments.map(comment => {
-      return (
-        <div className="comment post card " key={comment.id}>
-          { comment.content }
-        </div>
-      )
-    })
+    
          
     return (
       <div className="container center" >
-        <div className="float-container">
-          <div className="float-child">
-            {
-              (id === 1)
-              ? <div>
-                 
-                </div>
-              : <div>
-                  <Link to={'/' + (id - 1)}>
-                    <button>Previous</button>
-                  </Link>
-                </div>
-            }
-          </div>
-          <div className="float-child" >
-            {
-                (id === 19)
+        <Grid container direction="row" justify="space-between" alignItems="flex-end">
+          <div>
+              {
+                (id === 1)
                 ? <div>
-                  <button>None</button>
+                  
                   </div>
                 : <div>
-                    <Link to={'/' + (id + 1)}>
-                      <button>Next</button>
-                      
+                    <Link to={'/' + (id - 1)}>
+                    <Button variant="contained" color="primary">Previous</Button>
                     </Link>
                   </div>
               }
-          </div>
-        </div>
-        <div className="float-container">
-          <div className="float-child">
-            <div className="boss">
+            </div>
+            <div>
                 <img src={pic}  alt={name}  width="300" height="300"/>
             </div>
-          </div>
-          <div className="float-child boss" >
+          
+          <div className="boss">
             <h4> { name } </h4>
             <p> Weakness: { weakness } </p>
             <p> Resistance: { resistance } </p>
@@ -70,18 +55,36 @@ class Boss extends Component {
             <p> Parryable: { parryable } </p>
             <p> Optional: { optional } </p>
           </div>
-        </div>
+          <div>
+            {
+                (id === 19)
+                ? <div>
+                  
+                  </div>
+                : <div>
+                    <Link to={'/' + (id + 1)}>
+                    <Button variant="contained" color="primary">Next</Button>
+                      
+                    </Link>
+                  </div>
+              }
+          </div>  
+
+
+        </Grid>
           <Form history={ this.props.history } boss_id={id}/>
           <h4 className="center"> Comments </h4>
-        {
-          (commentList.length > 0)
-            ?
-              commentList
-            : 
-              <div>
-                No comments
-              </div>
-        }
+        <div className="container">
+          {
+            (bossComments.length > 0)
+              ?
+                <Comment comments={bossComments} />
+              : 
+                <div>
+                  No comments
+                </div>
+          }
+        </div>
       </div> 
     );
   }

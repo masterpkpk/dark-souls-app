@@ -1,10 +1,12 @@
 const initialState = {
   loading:true, 
   bosses: [],
-  comments: []
+  comments: [],
+  weapons: [],
+  armor: []
 }
 
-const bossesReducer = (state=initialState, action) => {
+const darkSoulsReducer = (state=initialState, action) => {
   switch(action.type) {
     case "LOADING":
       return {
@@ -36,9 +38,15 @@ const bossesReducer = (state=initialState, action) => {
         loading: true,
         comments: action.payload
       }
+    case "SET_WEAPONS":
+      return {
+        ...state,
+        loading: true,
+        weapons: action.payload
+      }
     default:
       return state;
   }
 }
 
-export default bossesReducer;
+export default darkSoulsReducer;

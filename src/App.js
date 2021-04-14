@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import "./App.css"
 import NavBar from './components/NavBar'
 import Home from "./components/Home"
-import About from "./components/About"
-import Contact from "./components/Contact"
+import Weapons from "./components/Weapons"
+import Armor from "./components/Armor"
 import Boss from "./components/Boss"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { fetchBosses, fetchComments } from './actions'
@@ -14,17 +14,18 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchBosses()
     this.props.fetchComments()
+    
   }
 
   render () {
-    
+    console.log(this.props)
     return (
       <Router>
           <NavBar />
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route exact path='/about' component={About} />
-              <Route exact path='/contact' component={Contact} />
+              <Route exact path='/weapons' component={Weapons} />
+              <Route exact path='/armor' component={Armor} />
               <Route path="/:id" component={Boss} />
 
             </Switch>

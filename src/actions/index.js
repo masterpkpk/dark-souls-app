@@ -1,3 +1,5 @@
+
+
 export const fetchBosses = () => {
   return dispatch => {
     dispatch({type: "LOADING"})
@@ -28,7 +30,7 @@ export const addComment = (comment, history) => {
       method: "POST",
       headers: {
         "Accept": "application/json",
-        "Content-Type": "application/json" 
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ comment })
     })
@@ -49,4 +51,5 @@ export const fetchComments = () => {
       .then(payload => dispatch({type: "SET_COMMENTS", payload}))
   }
 }
+
 
