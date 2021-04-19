@@ -7,9 +7,6 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Comment from './Comment'
 
-
-
-
 class Boss extends Component {
   
   render() {
@@ -21,12 +18,9 @@ class Boss extends Component {
       )
     }
     
-   
-
     const { name, weakness, resistance, immunity, parryable, optional, id, pic} = this.props.boss
     const bossComments = this.props.comments.filter(comment => id === comment.boss_id)
-    
-         
+        
     return (
       <div className="container center" >
         <Grid container direction="row" justify="space-between" alignItems="flex-end">
@@ -69,7 +63,6 @@ class Boss extends Component {
                   </div>
               }
           </div>  
-
 
         </Grid>
           <Form history={ this.props.history } boss_id={id}/>

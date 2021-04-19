@@ -15,20 +15,18 @@ const Footer = () => {
   }
   }));
   const classes = useStyles()
-  return(
-   
-   <div className={classes.bottomPush}>
-    <AppBar position="static" color="primary">
-      <Container  maxWidth="md">
-        <Toolbar>
-          <Typography variant="body1" color="inherit">
-            © Dark Souls Phony's INC.
-          </Typography>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  </div>
-  
+  return( 
+    <div className={classes.bottomPush}>
+      <AppBar position="static" color="primary">
+        <Container  maxWidth="md">
+          <Toolbar>
+            <Typography variant="body1" color="inherit">
+              © Dark Souls Phony's INC.
+            </Typography>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </div> 
   )
 }
 

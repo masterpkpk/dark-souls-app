@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
 import Footer from './Footer'
 
-
 class Armor extends Component {
   render () {
     
@@ -25,15 +24,15 @@ class Armor extends Component {
       }
     ]
 
-    const armorList = armor.map(article => {
+    const armorList = armor.map((article, index) => {
       return(
-        <Grid item xs={2}>
-          <div key={Math.random()}>
-            <div className="center">
-              <p> {article.name} </p>
-            </div>
+        <Grid item xs={2} key={index}>
+          <div>
             <div className="center">
               <img src={article.pic} alt={article.name}  />
+            </div>
+            <div className="center">
+              <p> {article.name} </p>
             </div>
           </div>
         </Grid>

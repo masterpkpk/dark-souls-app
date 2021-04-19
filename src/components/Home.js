@@ -3,14 +3,11 @@ import List from './List'
 import Footer from './Footer'
 
 const Home = () => {
-  return (
-    
+  return ( 
     <div className="container">
-      <List />
+      <List name={"Billy"}/>
       <Footer />
     </div>
-
   )
 }
-
 export default Home

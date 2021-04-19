@@ -105,18 +105,18 @@ class Weapons extends Component {
       },
     ]
 
-    const weaponsList = weapons.map(weapon => {
-      return(
-        <Grid item xs={2}>
-          <div key={Math.random()}>
-            <div className="center">
-              <p> {weapon.name} </p>
-            </div>
+    const weaponsList = weapons.map((weapon, index) => {
+      return(          
+        <Grid item xs={2} key={index}>
+          <div>
             <div className="center">
               <img src={weapon.pic} alt={weapon.name}/>
             </div>
+            <div className="center">
+              <p> {weapon.name} </p>
+            </div>
           </div>
-        </Grid>
+        </Grid>    
       )
     })
       
