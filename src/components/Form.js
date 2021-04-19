@@ -20,7 +20,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-  
+    console.log(e.target)
     this.props.addComment(this.state, this.props.history)
     this.setState({
       content: "",

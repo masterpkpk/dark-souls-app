@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const Comment = ({ comments }) => {
-  console.log(comments)
+ 
   const classes = useStyles()
   return (
     

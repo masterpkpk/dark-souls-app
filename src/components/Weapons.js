@@ -115,6 +115,7 @@ class Weapons extends Component {
             <div className="center">
               <p> {weapon.name} </p>
             </div>
+            <button>Like</button>
           </div>
         </Grid>    
       )

@@ -12,13 +12,16 @@ import { connect } from 'react-redux'
 class App extends Component {
 
   componentDidMount() {
+  
     this.props.fetchBosses()
+   
     this.props.fetchComments()
+    
     
   }
 
   render () {
-    console.log(this.props)
+   
     return (
       <Router>
           <NavBar />
@@ -27,7 +30,6 @@ class App extends Component {
               <Route exact path='/weapons' component={Weapons} />
               <Route exact path='/armor' component={Armor} />
               <Route path="/:id" component={Boss} />
-
             </Switch>
       </Router>
     );

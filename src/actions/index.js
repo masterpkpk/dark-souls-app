@@ -6,7 +6,10 @@ export const fetchBosses = () => {
     
     fetch("http://localhost:3001/bosses")
       .then(resp => resp.json())
-      .then(payload => dispatch({type: "SET_BOSSES", payload}))
+      .then(payload => { 
+        dispatch({type: "SET_BOSSES", payload}) 
+        
+      })
 
     
   }
@@ -45,10 +48,13 @@ export const addComment = (comment, history) => {
 export const fetchComments = () => {
   return dispatch => {
     dispatch({type: "LOADING"})
-    
+   
     fetch("http://localhost:3001/comments")
       .then(resp => resp.json())
-      .then(payload => dispatch({type: "SET_COMMENTS", payload}))
+      .then(payload => {
+        dispatch({type: "SET_COMMENTS", payload})
+        
+      })
   }
 }
 

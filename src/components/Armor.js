@@ -3,8 +3,35 @@ import Grid from '@material-ui/core/Grid';
 import Footer from './Footer'
 
 class Armor extends Component {
-  render () {
+  
+  state = {
+    Helms: 0,
+    Leggings: 0,
+    Gauntlets: 0,
+    Chests: 0,
+    count: 1
+  }
+  increaseCount = (e) => {
     
+    this.setState((state) => ({
+      [e.target.name]: state[e.target.name] + state.count
+   }))
+   console.log(this.state)
+  }
+
+  handleChange = (e) => {
+    const num = parseInt(e.target.value)
+    this.setState({
+      [e.target.name]: num
+      
+    })
+    
+  }
+
+ 
+  render () {
+  
+
     const armor = [
       {
         name: "Helms",
@@ -24,9 +51,14 @@ class Armor extends Component {
       }
     ]
 
+
+    //create button
+    //link button to object
+    //give object count
+    //on click increase objects count
     const armorList = armor.map((article, index) => {
       return(
-        <Grid item xs={2} key={index}>
+        <Grid item xs={2} key={index} >
           <div>
             <div className="center">
               <img src={article.pic} alt={article.name}  />
@@ -34,6 +66,7 @@ class Armor extends Component {
             <div className="center">
               <p> {article.name} </p>
             </div>
+            <button onClick={this.increaseCount} name={article.name}>Like {this.state[article.name]}</button>
           </div>
         </Grid>
       )
@@ -41,6 +74,10 @@ class Armor extends Component {
     return (
       <div className="container">
         <h4 className="center">Armor</h4>
+        <form > 
+          <input type="text" name="count" value={this.state.count} onChange={this.handleChange}/>
+          
+        </form>
           <Grid container direction="row" justify="center" alignItems="flex-end">  
               { armorList }         
           </Grid> 
