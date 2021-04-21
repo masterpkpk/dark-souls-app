@@ -2,6 +2,27 @@
 
 https://github.com/masterpkpk/dark-souls-api
 
+
+## Getting the back end setup 
+
+Head over to the above link and clone it
+run these commands in terminal
+
+rails db:migrate
+rails db:seed
+
+to start server run : rails s
+
+# About the App
+
+This is a Darks souls 3 mini Wiki, in it you can,
+
+-View all bosses in DS3
+-Comment on each individual Boss 
+-View all weapons and armor in game
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

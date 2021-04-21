@@ -20,7 +20,7 @@ class Boss extends Component {
     
     const { name, weakness, resistance, immunity, parryable, optional, id, pic} = this.props.boss
     const bossComments = this.props.comments.filter(comment => id === comment.boss_id)
-        
+ 
     return (
       <div className="container center" >
         <Grid container direction="row" justify="space-between" alignItems="flex-end">

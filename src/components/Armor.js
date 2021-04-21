@@ -20,12 +20,18 @@ class Armor extends Component {
   }
 
   handleChange = (e) => {
-    const num = parseInt(e.target.value)
-    this.setState({
-      [e.target.name]: num
-      
-    })
-    
+    if (e.target.value === '') {
+      this.setState({
+        [e.target.name]: 0
+      })
+    }
+    else {
+      const num = parseInt(e.target.value)
+      this.setState({
+        [e.target.name]: num
+        
+      })
+    }
   }
 
  
